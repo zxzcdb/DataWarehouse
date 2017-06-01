@@ -6,12 +6,14 @@ EMAIL VARCHAR(30),
 PHONE VARCHAR(30)
 )
 
-Create table RESOURCETBL
-( RESNO VARCHAR(8) NOT NULL PRIMARY KEY,
-RESNAME VARCHAR(30),
-RATE INTEGER,
-CHECK (RATE > 0)
-)
+CREATE TABLE ResourceTbl
+(
+	ResNo varchar2(8) PRIMARY KEY NOT NULL,
+	ResName varchar2(20) NOT NULL,
+	Rate decimal(4,2) NOT NULL,
+	CONSTRAINT CheckRate CHECK (Rate>0)
+);
+
 
 Create table CUSTOMER 
 (CUSTNO VARCHAR(8) NOT NULL PRIMARY KEY,
@@ -145,5 +147,3 @@ Insert into EVENTPLANLINE (PLANNO,LINENO,TIMESTART,TIMEEND,NUMBERFLD,LOCNO,RESNO
 Insert into EVENTPLANLINE (PLANNO,LINENO,TIMESTART,TIMEEND,NUMBERFLD,LOCNO,RESNO) values ('P95',3, str_to_date('26,OCT,13 10:00:00','%d,%b,%y %H:%i:%s'), str_to_date('26,OCT,13 15:00:00','%d,%b,%y %H:%i:%s'),4,'L106','R100');
 Insert into EVENTPLANLINE (PLANNO,LINENO,TIMESTART,TIMEEND,NUMBERFLD,LOCNO,RESNO) values ('P95',4, str_to_date('26,OCT,13 13:00:00','%d,%b,%y %H:%i:%s'), str_to_date('26,OCT,13 17:00:00','%d,%b,%y %H:%i:%s'),2,'L100','R103');
 Insert into EVENTPLANLINE (PLANNO,LINENO,TIMESTART,TIMEEND,NUMBERFLD,LOCNO,RESNO) values ('P95',5, str_to_date('26,OCT,13 13:00:00','%d,%b,%y %H:%i:%s'), str_to_date('26,OCT,13 17:00:00','%d,%b,%y %H:%i:%s'),2,'L101','R104');
-
-
